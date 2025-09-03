@@ -1,0 +1,10 @@
+- Clone this repository: https://github.com/ameream/react-challenge.git
+- Create a new branch containing your first name and last name: Eg. john-doe-challenge.
+- Once cloned, navigate to each folder backend and mobile and run "npm install" for installing all project dependencies.
+- For starting the backend project, run: "npm run dev" inside the backend folder.
+- For starting the mobile project, run: "npm start" inside the frontend folder.
+- You can run it either on a simulator or a connected device
+- Complete the 2 tasks contained in the README.md file
+- Feel free to install any additional dependency in the project.
+- Avoid using built in group dependencies for completing the challenge (Eg. lodash group by).
+- Avoid using AI for generating the code.
