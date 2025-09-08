@@ -3,8 +3,12 @@
     "name": "star-wars-frontend",
     "slug": "star-wars-frontend",
     "version": "1.0.0",
-    "sdkVersion": "51.0.0",
-    "platforms": ["ios", "android", "web"],
-    "entryPoint": "./App.tsx"
+    "platforms": ["ios", "android"],
+    "ios": {
+      "bundleIdentifier": "com.alejo-garcia.star-wars-frontend"
+    },
+    "android": {
+      "package": "com.alejo-garcia.star-wars-frontend"
+    }
   }
 }
