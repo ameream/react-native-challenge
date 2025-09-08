@@ -2,7 +2,6 @@ import { Router } from "express";
 
 const router = Router();
 
-
 router.get("/people", async (_req, res) => {
   try {
     res.json({ message: "Not implemented yet" });

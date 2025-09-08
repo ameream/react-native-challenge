@@ -1,5 +1,6 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
+
 import peopleRoutes from "./routes/people";
 
 const app = express();
