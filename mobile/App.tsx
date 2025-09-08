@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
+
 import PeopleBySpecies from "./components/PeopleBySpecies";
 
 export default function App() {
