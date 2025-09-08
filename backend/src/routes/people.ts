@@ -1,14 +1,11 @@
 import { Router } from "express";
 
-const router = Router();
+import { PeopleController } from "../controllers";
 
-router.get("/people", async (_req, res) => {
-  try {
-    res.json({ message: "Not implemented yet" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
+const router = Router();
+const peopleController = new PeopleController();
+
+// GET /api/people - returns organized Star Wars people data grouped by species
+router.get("/people", peopleController.getPeople);
 
 export default router;
