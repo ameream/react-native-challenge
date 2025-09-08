@@ -10,6 +10,7 @@ dist/
 build/
 .expo/
 .expo-shared/
+.expo-env.d.ts
 
 # Logs
 logs/
@@ -30,3 +31,9 @@ Thumbs.db
 
 # Coverage
 coverage/
+
+# iOS
+ios/
+
+# Android
+android/
