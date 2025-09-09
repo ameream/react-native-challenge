@@ -1,14 +1,12 @@
-import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 
-import PeopleBySpecies from "./components/people-by-species";
+import PeopleBySpecies from "../components/people-by-species";
 
-export default function App() {
+export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.header}>React Native Challenge</Text>
       <PeopleBySpecies />
-      <StatusBar style="auto" />
     </SafeAreaView>
   );
 }

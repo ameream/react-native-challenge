@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text } from "react-native";
 
 interface SpeciesGroup {
   species: string;
@@ -7,8 +7,8 @@ interface SpeciesGroup {
 }
 
 export default function PeopleBySpecies() {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<SpeciesGroup[]>([]);
+  const [, setLoading] = useState(true);
+  const [data] = useState<SpeciesGroup[]>([]);
 
   useEffect(() => {
     async function fetchData() {

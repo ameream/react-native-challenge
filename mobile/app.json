@@ -9,6 +9,11 @@
     },
     "android": {
       "package": "com.alejo-garcia.star-wars-frontend"
+    },
+    "plugins": ["expo-router"],
+    "scheme": "star-wars-frontend",
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
