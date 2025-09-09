@@ -1,21 +1,32 @@
 import { Image } from "expo-image";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { SaberIcon } from "@/components/ui/icons/saber-icon";
 import { ThemedText } from "@/components/ui/themed-text";
 import { ThemedView } from "@/components/ui/themed-view";
 import { Colors, Fonts, Spacing, Typography } from "@/constants/theme";
+import { useSound } from "@/hooks/use-sound";
 import i18n from "@/i18n";
 
 export function StarWarsHeader() {
+  const { playSound } = useSound(
+    require("@/assets/sounds/i-am-your-father.mp3"),
+  );
+
+  const handleDarthVaderPress = () => {
+    playSound();
+  };
+
   return (
     <>
       <View style={styles.headerImageContainer}>
-        <Image
-          source={require("@/assets/images/darth-vader.png")}
-          contentFit="contain"
-          style={styles.headerImage}
-        />
+        <TouchableOpacity onPress={handleDarthVaderPress} activeOpacity={0.8}>
+          <Image
+            source={require("@/assets/images/darth-vader.png")}
+            contentFit="contain"
+            style={styles.headerImage}
+          />
+        </TouchableOpacity>
       </View>
 
       <ThemedView style={styles.titleContainer}>
