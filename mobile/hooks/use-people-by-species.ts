@@ -19,7 +19,7 @@ const fetchPeopleBySpecies = async (): Promise<SpeciesGroup[]> => {
 
     // sort people by height (tallest to shortest)
     const sortedPeople = peopleArray.sort((a, b) => {
-      // Handle "unknown" heights by putting them at the end
+      // handle "unknown" heights by putting them at the end
       if (a.height === "unknown" && b.height === "unknown") return 0;
       if (a.height === "unknown") return 1;
       if (b.height === "unknown") return -1;

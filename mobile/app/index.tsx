@@ -12,7 +12,7 @@ export default function HomeScreen() {
   const { playSound } = useSound(require("@/assets/sounds/lightsaber.mp3"));
 
   useEffect(() => {
-    // Play lightsaber sound when the app opens
+    // play lightsaber sound when the app opens
     playSound();
   }, [playSound]);
 

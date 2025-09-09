@@ -6,7 +6,6 @@ export function useSound(soundFile: string) {
 
   const playSound = async () => {
     try {
-      // Reset to beginning and play to allow multiple plays
       player.seekTo(0);
       player.play();
     } catch (error) {
@@ -22,7 +21,7 @@ export function useSound(soundFile: string) {
     }
   };
 
-  // Cleanup on unmount
+  // cleanup on unmount
   useEffect(() => {
     return () => {
       player.pause();

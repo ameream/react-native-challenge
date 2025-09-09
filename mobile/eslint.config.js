@@ -11,7 +11,6 @@ module.exports = defineConfig([
       prettier: require("eslint-plugin-prettier"),
     },
     rules: {
-      // Disable ESLint rules that conflict with Prettier
       "prettier/prettier": "error",
     },
   },

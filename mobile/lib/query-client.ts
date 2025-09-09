@@ -1,6 +1,6 @@
 import { QueryClient } from "@tanstack/react-query";
 
-// Query configuration constants
+// query configuration constants
 const STALE_TIME = 5 * 60 * 1000; // 5 minutes
 const GC_TIME = 10 * 60 * 1000; // 10 minutes
 const MAX_RETRY_ATTEMPTS = 2;
