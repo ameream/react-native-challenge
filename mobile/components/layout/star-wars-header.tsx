@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   headerImageContainer: {
     height: 256,
     right: -32,
-    marginVertical: Spacing.sm,
+    marginVertical: Spacing.xl,
   },
   headerImage: {
     width: "100%",
