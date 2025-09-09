@@ -1,9 +1,11 @@
 import { SymbolView, SymbolViewProps, SymbolWeight } from "expo-symbols";
 import { StyleProp, ViewStyle } from "react-native";
 
+import { IconSizes } from "@/constants/theme";
+
 export function IconSymbol({
   name,
-  size = 24,
+  size = IconSizes.lg,
   color,
   style,
   weight = "regular",

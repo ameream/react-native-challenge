@@ -2,6 +2,7 @@ import { SymbolViewProps, SymbolWeight } from "expo-symbols";
 import { ComponentProps } from "react";
 import { OpaqueColorValue, StyleProp, TextStyle } from "react-native";
 
+import { IconSizes } from "@/constants/theme";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 type IconMapping = Record<
@@ -19,7 +20,7 @@ const MAPPING = {
 
 export function IconSymbol({
   name,
-  size = 24,
+  size = IconSizes.lg,
   color,
   style,
 }: {
