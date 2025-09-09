@@ -2,6 +2,11 @@ import { API_CONFIG, HTTP_STATUS, QUERY_CONFIG } from "@/constants/api";
 import { Person, SpeciesGroup } from "@/types/people";
 import { useQuery } from "@tanstack/react-query";
 
+/**
+ * Fetches people data from the API and groups them by species.
+ * Sorts people within each species by height (tallest to shortest).
+ * @returns promise that resolves to an array of species groups with sorted people
+ */
 const fetchPeopleBySpecies = async (): Promise<SpeciesGroup[]> => {
   const response = await fetch(
     `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PEOPLE}`,
@@ -44,6 +49,11 @@ const fetchPeopleBySpecies = async (): Promise<SpeciesGroup[]> => {
   });
 };
 
+/**
+ * Custom hook that fetches and caches people data grouped by species.
+ * Uses React Query for data fetching, caching, and error handling.
+ * @returns React Query result object with data, loading, error states, etc.
+ */
 export const usePeopleBySpecies = () => {
   return useQuery({
     queryKey: ["people-by-species"],

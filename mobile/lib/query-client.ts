@@ -9,6 +9,10 @@ const RETRY_DELAY_BASE = 1000; // 1 second
 const MUTATION_RETRY_ATTEMPTS = 1;
 const MUTATION_RETRY_DELAY = 1000; // 1 second
 
+/**
+ * Pre-configured React Query client with optimized settings for the mobile app.
+ * Includes retry logic, caching strategies, and error handling configurations.
+ */
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

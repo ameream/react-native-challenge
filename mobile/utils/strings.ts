@@ -1,5 +1,10 @@
 import i18n from "@/i18n";
 
+/**
+ * Translates a gender string to the appropriate localized text.
+ * @param gender - the gender string to translate (case-insensitive)
+ * @returns the localized gender text
+ */
 const translateGender = (gender: string) => {
   switch (gender.toLowerCase()) {
     case "male":
@@ -13,6 +18,13 @@ const translateGender = (gender: string) => {
   }
 };
 
+/**
+ * Formats person details (height, mass, gender) into a localized string.
+ * @param height - the person's height (string, "unknown" if not available)
+ * @param mass - the person's mass (string, "unknown" if not available)
+ * @param gender - the person's gender (string)
+ * @returns a formatted string with height, mass, and gender information
+ */
 export const formatPersonDetails = (
   height: string,
   mass: string,
@@ -25,6 +37,11 @@ export const formatPersonDetails = (
   return `${i18n.t("HEIGHT")}: ${heightText} • ${i18n.t("MASS")}: ${massText} • ${i18n.t("GENDER")}: ${translateGender(gender)}`;
 };
 
+/**
+ * Converts an error object to a user-friendly localized error message.
+ * @param error - the error object to convert
+ * @returns a localized error message string
+ */
 export const getErrorMessage = (error: Error) => {
   if (
     error.message.includes("Network request failed") ||
