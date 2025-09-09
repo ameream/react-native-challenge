@@ -1,8 +1,11 @@
+import { API_CONFIG, HTTP_STATUS, QUERY_CONFIG } from "@/constants/api";
 import { Person, SpeciesGroup } from "@/types/people";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchPeopleBySpecies = async (): Promise<SpeciesGroup[]> => {
-  const response = await fetch("http://localhost:4000/api/people");
+  const response = await fetch(
+    `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PEOPLE}`,
+  );
 
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
@@ -10,27 +13,27 @@ const fetchPeopleBySpecies = async (): Promise<SpeciesGroup[]> => {
 
   const apiData = await response.json();
 
-  // Convert the API data to the format expected by the component
+  // convert the API data to the format expected by the component
   return Object.entries(apiData).map(([species, people]) => {
     const peopleArray = people as Person[];
 
-    // Sort people by height (tallest to shortest)
+    // sort people by height (tallest to shortest)
     const sortedPeople = peopleArray.sort((a, b) => {
       // Handle "unknown" heights by putting them at the end
       if (a.height === "unknown" && b.height === "unknown") return 0;
       if (a.height === "unknown") return 1;
       if (b.height === "unknown") return -1;
 
-      // Convert height strings to numbers for comparison
+      // convert height strings to numbers for comparison
       const heightA = parseFloat(a.height);
       const heightB = parseFloat(b.height);
 
-      // Handle NaN cases (invalid height values)
+      // handle invalid height values
       if (isNaN(heightA) && isNaN(heightB)) return 0;
       if (isNaN(heightA)) return 1;
       if (isNaN(heightB)) return -1;
 
-      // Sort from tallest to shortest (descending order)
+      // sort from tallest to shortest (descending order)
       return heightB - heightA;
     });
 
@@ -45,17 +48,26 @@ export const usePeopleBySpecies = () => {
   return useQuery({
     queryKey: ["people-by-species"],
     queryFn: fetchPeopleBySpecies,
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
+    staleTime: QUERY_CONFIG.STALE_TIME,
+    gcTime: QUERY_CONFIG.GC_TIME,
     retry: (failureCount, error) => {
-      // Don't retry on 4xx errors (client errors)
-      if (error instanceof Error && error.message.includes("4")) {
+      // don't retry on 4xx errors (client errors)
+      if (
+        error instanceof Error &&
+        error.message.includes(HTTP_STATUS.CLIENT_ERROR_PREFIX)
+      ) {
         return false;
       }
-      return failureCount < 2;
+      return failureCount < QUERY_CONFIG.MAX_RETRIES;
     },
-    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
-    refetchOnWindowFocus: false, // Disable refetch on window focus for mobile
+    retryDelay: (attemptIndex) => {
+      const exponentialDelay =
+        QUERY_CONFIG.RETRY_DELAY_BASE *
+        QUERY_CONFIG.RETRY_DELAY_MULTIPLIER ** attemptIndex;
+
+      return Math.min(exponentialDelay, QUERY_CONFIG.MAX_RETRY_DELAY);
+    },
+    refetchOnWindowFocus: false,
     refetchOnMount: true,
     refetchOnReconnect: true,
   });
