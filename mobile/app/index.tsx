@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import PeopleBySpecies from "@/components/features/people/people-by-species";
 import { StarWarsHeader } from "@/components/layout/star-wars-header";
 import { ThemedView } from "@/components/ui/themed-view";
+import { Spacing } from "@/constants/theme";
 
 export default function HomeScreen() {
   return (
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    paddingHorizontal: 16,
+    paddingHorizontal: Spacing.lg,
   },
   peopleBySpeciesContainer: {
     flex: 1,
