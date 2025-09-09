@@ -1,33 +1,34 @@
 import { QueryClient } from "@tanstack/react-query";
 
-// Query client configuration
+// Query configuration constants
+const STALE_TIME = 5 * 60 * 1000; // 5 minutes
+const GC_TIME = 10 * 60 * 1000; // 10 minutes
+const MAX_RETRY_ATTEMPTS = 2;
+const MAX_RETRY_DELAY = 30000; // 30 seconds
+const RETRY_DELAY_BASE = 1000; // 1 second
+const MUTATION_RETRY_ATTEMPTS = 1;
+const MUTATION_RETRY_DELAY = 1000; // 1 second
+
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      // Data stays fresh for 5 minutes
-      staleTime: 5 * 60 * 1000,
-      // Data stays in cache for 10 minutes
-      gcTime: 10 * 60 * 1000,
-      // Retry failed requests up to 2 times
+      staleTime: STALE_TIME,
+      gcTime: GC_TIME,
       retry: (failureCount, error) => {
-        // Don't retry on 4xx errors (client errors)
         if (error instanceof Error && error.message.includes("4")) {
           return false;
         }
-        return failureCount < 2;
+        return failureCount < MAX_RETRY_ATTEMPTS;
       },
-      // Exponential backoff for retries
-      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
-      // Mobile-optimized settings
+      retryDelay: (attemptIndex) =>
+        Math.min(RETRY_DELAY_BASE * 2 ** attemptIndex, MAX_RETRY_DELAY),
       refetchOnWindowFocus: false,
       refetchOnMount: true,
       refetchOnReconnect: true,
     },
     mutations: {
-      // Retry mutations once
-      retry: 1,
-      // Retry delay for mutations
-      retryDelay: 1000,
+      retry: MUTATION_RETRY_ATTEMPTS,
+      retryDelay: MUTATION_RETRY_DELAY,
     },
   },
 });
