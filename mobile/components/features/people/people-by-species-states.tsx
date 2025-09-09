@@ -13,13 +13,16 @@ import {
   Typography,
 } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import i18n from "@/i18n";
 import { getErrorMessage } from "@/utils/strings";
 
 interface LoadingStateProps {
   message?: string;
 }
 
-export function LoadingState({ message = "Loading..." }: LoadingStateProps) {
+export function LoadingState({
+  message = i18n.t("LOADING"),
+}: LoadingStateProps) {
   return (
     <ThemedView style={styles.centerContainer}>
       <ThemedText type="defaultSemiBold">{message}</ThemedText>
@@ -50,11 +53,11 @@ export function ErrorState({ error, onRetry }: ErrorStateProps) {
         {getErrorMessage(error)}
       </ThemedText>
       <ThemedText type="default" style={styles.errorSubtext}>
-        Please make sure the backend server is running on http://localhost:4000
+        {i18n.t("ERROR_SERVER_MESSAGE")}
       </ThemedText>
       <TouchableOpacity style={styles.retryButton} onPress={onRetry}>
         <ThemedText type="defaultSemiBold" style={styles.retryButtonText}>
-          Retry
+          {i18n.t("RETRY")}
         </ThemedText>
       </TouchableOpacity>
     </ThemedView>
@@ -68,10 +71,12 @@ interface EmptyStateProps {
 export function EmptyState({ onRefresh }: EmptyStateProps) {
   return (
     <ThemedView style={styles.centerContainer}>
-      <ThemedText type="defaultSemiBold">No data available</ThemedText>
+      <ThemedText type="defaultSemiBold">
+        {i18n.t("NO_DATA_AVAILABLE")}
+      </ThemedText>
       <TouchableOpacity style={styles.retryButton} onPress={onRefresh}>
         <ThemedText type="defaultSemiBold" style={styles.retryButtonText}>
-          Refresh
+          {i18n.t("REFRESH")}
         </ThemedText>
       </TouchableOpacity>
     </ThemedView>
@@ -99,7 +104,7 @@ const styles = StyleSheet.create({
   errorSubtext: {
     textAlign: "center",
     opacity: Opacity.disabled,
-    marginBottom: Spacing.sm,
+    marginBottom: Spacing.xl,
     fontSize: Typography.sizes.md,
     lineHeight: Typography.lineHeights.normal,
   },
@@ -107,6 +112,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.lg,
     paddingVertical: Spacing.sm,
     borderRadius: BorderRadius.md,
+    backgroundColor: Colors.light.buttonSecondary,
   },
   retryButtonText: {
     color: Colors.light.text,

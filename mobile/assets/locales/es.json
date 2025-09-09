@@ -1,0 +1,20 @@
+{
+  "HOME_TITLE": "Star Wars",
+  "HOME_SUBTITLE": "Personajes por especie (arrastra para actualizar)",
+  "LOADING": "Cargando...",
+  "ERROR_SERVER_MESSAGE": "Asegúrate de que el servidor backend esté ejecutándose en http://localhost:4000",
+  "RETRY": "Reintentar",
+  "NO_DATA_AVAILABLE": "No hay datos disponibles",
+  "REFRESH": "Actualizar",
+  "HEIGHT": "Altura",
+  "MASS": "Masa",
+  "GENDER": "Género",
+  "HOMEWORLD": "Mundo natal",
+  "NETWORK_CONNECTION_FAILED": "Falló la conexión de red",
+  "SERVER_ERROR_OCCURRED": "Ocurrió un error del servidor",
+  "SERVER_TEMPORARILY_UNAVAILABLE": "El servidor no está disponible temporalmente",
+  "UNKNOWN": "Desconocido",
+  "MALE": "Masculino",
+  "FEMALE": "Femenino",
+  "HERMAPHRODITE": "Hermafrodita"
+}

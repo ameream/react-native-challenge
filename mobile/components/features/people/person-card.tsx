@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import { ThemedText } from "@/components/ui/themed-text";
 import { ThemedView } from "@/components/ui/themed-view";
 import { Opacity, Spacing, Typography } from "@/constants/theme";
+import i18n from "@/i18n";
 import { Person } from "@/types/people";
 import { formatPersonDetails } from "@/utils/strings";
 
@@ -21,7 +22,7 @@ export function PersonCard({ person }: PersonCardProps) {
         {formatPersonDetails(person.height, person.mass, person.gender)}
       </ThemedText>
       <ThemedText style={styles.personDetails} type="default">
-        {"Homeworld"}: {person.homeworld}
+        {i18n.t("HOMEWORLD")}: {person.homeworld}
       </ThemedText>
     </ThemedView>
   );

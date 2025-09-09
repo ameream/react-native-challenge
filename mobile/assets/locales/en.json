@@ -1,0 +1,20 @@
+{
+  "HOME_TITLE": "Star Wars",
+  "HOME_SUBTITLE": "People by species (pull to refresh)",
+  "LOADING": "Loading...",
+  "ERROR_SERVER_MESSAGE": "Please make sure the backend server is running on http://localhost:4000",
+  "RETRY": "Retry",
+  "NO_DATA_AVAILABLE": "No data available",
+  "REFRESH": "Refresh",
+  "HEIGHT": "Height",
+  "MASS": "Mass",
+  "GENDER": "Gender",
+  "HOMEWORLD": "Homeworld",
+  "NETWORK_CONNECTION_FAILED": "Network connection failed",
+  "SERVER_ERROR_OCCURRED": "Server error occurred",
+  "SERVER_TEMPORARILY_UNAVAILABLE": "Server is temporarily unavailable",
+  "UNKNOWN": "Unknown",
+  "MALE": "Male",
+  "FEMALE": "Female",
+  "HERMAPHRODITE": "Hermaphrodite"
+}

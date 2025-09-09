@@ -5,6 +5,7 @@ import { SaberIcon } from "@/components/ui/icons/saber-icon";
 import { ThemedText } from "@/components/ui/themed-text";
 import { ThemedView } from "@/components/ui/themed-view";
 import { Colors, Fonts, Spacing, Typography } from "@/constants/theme";
+import i18n from "@/i18n";
 
 export function StarWarsHeader() {
   return (
@@ -19,14 +20,14 @@ export function StarWarsHeader() {
 
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title" style={styles.titleText}>
-          Star Wars
+          {i18n.t("HOME_TITLE")}
         </ThemedText>
         <SaberIcon />
       </ThemedView>
 
       <ThemedView style={styles.subtitleContainer}>
         <ThemedText type="defaultSemiBold" style={styles.subtitleText}>
-          People by species
+          {i18n.t("HOME_SUBTITLE")}
         </ThemedText>
       </ThemedView>
     </>
