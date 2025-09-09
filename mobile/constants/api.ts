@@ -1,6 +1,11 @@
+import { Platform } from "react-native";
+
+const BASE_URL =
+  Platform.OS === "ios" ? "http://localhost:4000" : "http://10.0.2.2:4000";
+
 // API Configuration Constants
 export const API_CONFIG = {
-  BASE_URL: "http://localhost:4000",
+  BASE_URL: BASE_URL,
   ENDPOINTS: {
     PEOPLE: "/api/people",
   },
