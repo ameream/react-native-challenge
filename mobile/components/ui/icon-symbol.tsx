@@ -23,12 +23,14 @@ export function IconSymbol({
   size = IconSizes.lg,
   color,
   style,
+  testID,
 }: {
   name: IconSymbolName;
   size?: number;
   color: string | OpaqueColorValue;
   style?: StyleProp<TextStyle>;
   weight?: SymbolWeight;
+  testID?: string;
 }) {
   return (
     <MaterialIcons
@@ -36,6 +38,7 @@ export function IconSymbol({
       size={size}
       name={MAPPING[name]}
       style={style}
+      testID={testID}
     />
   );
 }

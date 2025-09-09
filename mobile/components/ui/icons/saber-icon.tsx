@@ -1,6 +1,6 @@
 import { Text } from "react-native";
 
-export function SaberIcon() {
+export function SaberIcon({ testID }: { testID?: string } = {}) {
   return (
     <Text
       style={{
@@ -8,6 +8,7 @@ export function SaberIcon() {
         lineHeight: 32,
         marginTop: -3,
       }}
+      testID={testID}
     >
       ⚔️
     </Text>

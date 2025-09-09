@@ -10,18 +10,19 @@ import { formatPersonDetails } from "@/utils/strings";
 
 interface PersonCardProps {
   person: Person;
+  testID?: string;
 }
 
-export function PersonCard({ person }: PersonCardProps) {
+export function PersonCard({ person, testID }: PersonCardProps) {
   return (
-    <ThemedView style={styles.personItem}>
-      <ThemedText style={styles.personName} type="defaultSemiBold">
+    <ThemedView style={styles.personItem} testID={testID}>
+      <ThemedText style={styles.personName} type="defaultSemiBold" testID={`${testID}-name`}>
         {person.name}
       </ThemedText>
-      <ThemedText style={styles.personDetails} type="default">
+      <ThemedText style={styles.personDetails} type="default" testID={`${testID}-details`}>
         {formatPersonDetails(person.height, person.mass, person.gender)}
       </ThemedText>
-      <ThemedText style={styles.personDetails} type="default">
+      <ThemedText style={styles.personDetails} type="default" testID={`${testID}-homeworld`}>
         {i18n.t("HOMEWORLD")}: {person.homeworld}
       </ThemedText>
     </ThemedView>

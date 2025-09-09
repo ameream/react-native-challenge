@@ -17,11 +17,11 @@ export default function HomeScreen() {
   }, [playSound]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ThemedView style={styles.contentContainer}>
+    <SafeAreaView style={styles.container} testID="main-screen">
+      <ThemedView style={styles.contentContainer} testID="content-container">
         <StarWarsHeader />
 
-        <ThemedView style={styles.peopleBySpeciesContainer}>
+        <ThemedView style={styles.peopleBySpeciesContainer} testID="people-by-species-container">
           <PeopleBySpecies />
         </ThemedView>
       </ThemedView>

@@ -20,24 +20,29 @@ export function StarWarsHeader() {
   return (
     <>
       <View style={styles.headerImageContainer}>
-        <TouchableOpacity onPress={handleDarthVaderPress} activeOpacity={0.8}>
+        <TouchableOpacity
+          onPress={handleDarthVaderPress}
+          activeOpacity={0.8}
+          testID="darth-vader-image-button"
+        >
           <Image
             source={require("@/assets/images/darth-vader.png")}
             contentFit="contain"
             style={styles.headerImage}
+            testID="darth-vader-image"
           />
         </TouchableOpacity>
       </View>
 
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title" style={styles.titleText}>
+      <ThemedView style={styles.titleContainer} testID="title-container">
+        <ThemedText type="title" style={styles.titleText} testID="home-title">
           {i18n.t("HOME_TITLE")}
         </ThemedText>
-        <SaberIcon />
+        <SaberIcon testID="saber-icon" />
       </ThemedView>
 
-      <ThemedView style={styles.subtitleContainer}>
-        <ThemedText type="defaultSemiBold" style={styles.subtitleText}>
+      <ThemedView style={styles.subtitleContainer} testID="subtitle-container">
+        <ThemedText type="defaultSemiBold" style={styles.subtitleText} testID="home-subtitle">
           {i18n.t("HOME_SUBTITLE")}
         </ThemedText>
       </ThemedView>

@@ -24,8 +24,8 @@ export function LoadingState({
   message = i18n.t("LOADING"),
 }: LoadingStateProps) {
   return (
-    <ThemedView style={styles.centerContainer}>
-      <ThemedText type="defaultSemiBold">{message}</ThemedText>
+    <ThemedView style={styles.centerContainer} testID="loading-state">
+      <ThemedText type="defaultSemiBold" testID="loading-message">{message}</ThemedText>
     </ThemedView>
   );
 }
@@ -39,7 +39,7 @@ export function ErrorState({ error, onRetry }: ErrorStateProps) {
   const theme = useColorScheme() ?? "light";
 
   return (
-    <ThemedView style={styles.centerContainer}>
+    <ThemedView style={styles.centerContainer} testID="error-state">
       <IconSymbol
         name="exclamationmark.triangle"
         size={IconSizes.xxl}
@@ -48,14 +48,15 @@ export function ErrorState({ error, onRetry }: ErrorStateProps) {
           theme === "light" ? Colors.light.errorIcon : Colors.dark.errorIcon
         }
         style={styles.errorIcon}
+        testID="error-icon"
       />
-      <ThemedText type="defaultSemiBold" style={styles.errorText}>
+      <ThemedText type="defaultSemiBold" style={styles.errorText} testID="error-message">
         {getErrorMessage(error)}
       </ThemedText>
-      <ThemedText type="default" style={styles.errorSubtext}>
+      <ThemedText type="default" style={styles.errorSubtext} testID="error-subtext">
         {i18n.t("ERROR_SERVER_MESSAGE")}
       </ThemedText>
-      <TouchableOpacity style={styles.retryButton} onPress={onRetry}>
+      <TouchableOpacity style={styles.retryButton} onPress={onRetry} testID="retry-button">
         <ThemedText type="defaultSemiBold" style={styles.retryButtonText}>
           {i18n.t("RETRY")}
         </ThemedText>
@@ -70,11 +71,11 @@ interface EmptyStateProps {
 
 export function EmptyState({ onRefresh }: EmptyStateProps) {
   return (
-    <ThemedView style={styles.centerContainer}>
-      <ThemedText type="defaultSemiBold">
+    <ThemedView style={styles.centerContainer} testID="empty-state">
+      <ThemedText type="defaultSemiBold" testID="empty-message">
         {i18n.t("NO_DATA_AVAILABLE")}
       </ThemedText>
-      <TouchableOpacity style={styles.retryButton} onPress={onRefresh}>
+      <TouchableOpacity style={styles.retryButton} onPress={onRefresh} testID="refresh-button">
         <ThemedText type="defaultSemiBold" style={styles.retryButtonText}>
           {i18n.t("REFRESH")}
         </ThemedText>

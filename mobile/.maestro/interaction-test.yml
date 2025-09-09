@@ -1,0 +1,37 @@
+appId: com.starwars.challenge
+---
+- launchApp
+- waitForAnimationToEnd
+
+# General check - verify main elements are visible
+- assertVisible:
+    id: "main-screen"
+- assertVisible:
+    id: "home-title"
+- assertVisible:
+    id: "darth-vader-image"
+
+# Test pull-to-refresh when species list is visible
+- runFlow:
+    when:
+      visible:
+        id: "species-list"
+    commands:
+      # Test pull-to-refresh gesture using swipe up from bottom
+      - swipe:
+          start: 50%, 60%
+          end: 50%, 100%
+      - waitForAnimationToEnd
+
+      # Verify species list is still visible after refresh
+      - assertVisible:
+          id: "species-list"
+
+# Test Darth Vader interaction
+- tapOn:
+    id: "darth-vader-image-button"
+- waitForAnimationToEnd
+
+# Verify app is still responsive
+- assertVisible:
+    id: "main-screen"

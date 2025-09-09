@@ -48,12 +48,13 @@ export default function PeopleBySpecies() {
   }
 
   return (
-    <ThemedView style={styles.container}>
+    <ThemedView style={styles.container} testID="people-by-species-container">
       {isRefetching && !isLoading && !isFetchedAfterMount && (
-        <ThemedView style={styles.refetchIndicator}>
+        <ThemedView style={styles.refetchIndicator} testID="refetch-indicator">
           <ActivityIndicator
             size="small"
             color={theme === "light" ? Colors.light.icon : Colors.dark.icon}
+            testID="refetch-activity-indicator"
           />
         </ThemedView>
       )}
@@ -63,11 +64,13 @@ export default function PeopleBySpecies() {
         keyExtractor={(item) => item.species}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}
+        testID="species-list"
         refreshControl={
           <RefreshControl
             refreshing={isRefetching}
             onRefresh={refetch}
             tintColor={theme === "light" ? Colors.light.icon : Colors.dark.icon}
+            testID="refresh-control"
           />
         }
       />
