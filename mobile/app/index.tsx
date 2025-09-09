@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-// import PeopleBySpecies from "@/components/features/people/people-by-species";
+import PeopleBySpecies from "@/components/features/people/people-by-species";
 import { StarWarsHeader } from "@/components/layout/star-wars-header";
 import { ThemedView } from "@/components/ui/themed-view";
 
@@ -12,7 +12,7 @@ export default function HomeScreen() {
         <StarWarsHeader />
 
         <ThemedView style={styles.peopleBySpeciesContainer}>
-          {/* <PeopleBySpecies /> */}
+          <PeopleBySpecies />
         </ThemedView>
       </ThemedView>
     </SafeAreaView>
