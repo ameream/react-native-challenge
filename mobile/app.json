@@ -1,17 +1,32 @@
 {
   "expo": {
-    "name": "star-wars-frontend",
+    "name": "Star Wars",
     "slug": "star-wars-frontend",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "star-wars-frontend",
+    "userInterfaceStyle": "automatic",
     "platforms": ["ios", "android"],
     "ios": {
-      "bundleIdentifier": "com.alejo-garcia.star-wars-frontend"
+      "bundleIdentifier": "com.starwars.challenge",
+      "supportsTablet": false
     },
     "android": {
-      "package": "com.alejo-garcia.star-wars-frontend"
+      "package": "com.starwars.challenge"
     },
-    "plugins": ["expo-router"],
-    "scheme": "star-wars-frontend",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 240,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
     "experiments": {
       "typedRoutes": true
     }
